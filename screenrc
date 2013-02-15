@@ -1,0 +1,4 @@
+shell zsh
+escape ^t^t
+scrollback 10000
+termcapinfo xterm* ti@:te@
