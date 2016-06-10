@@ -44,3 +44,9 @@ precmd () {
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 GIT_BRANCH="%1(v|%F{yellow}%1v%f|)"
 RPROMPT=$GIT_BRANCH$GREEN'[%~]'$DEFAULT
+eval "$(rbenv init -)"
+
+export PATH=$PATH:/Users/dan/.nodebrew/current/bin
+
+# for mono CheeseCake
+export PATH=$PATH:/Users/dan/bin
