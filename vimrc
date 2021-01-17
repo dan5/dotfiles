@@ -37,6 +37,8 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 " その他
 set hid           " 編集中の内容を保ったまま別の画面に切替えられるようにする(デフォルトだと一度保存しないと切り替えられない)
 
+set undofile
+
 " 検索語が画面の真ん中に来るようにする"
 "nmap n nzz 
 "nmap N Nzz 
@@ -56,35 +58,41 @@ nnoremap j gj
 nnoremap k gk
 
 
-"---------------------------
-" Start Neobundle Settings.
-"---------------------------
-" bundleで管理するディレクトリを指定
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+"NeoBundle Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath+=/Users/dan/.vim/bundle/neobundle.vim/
 
-" neobundle自体をneobundleで管理
+" Required:
+call neobundle#begin(expand('/Users/dan/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" 今後このあたりに追加のプラグインをどんどん書いて行きます！！"
-" NERDTreeを設定
+" Add or remove your Bundles here:
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'leafo/moonscript-vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'grep.vim'
 
-"autocmd VimEnter * execute 'NERDTree'
+" You can specify revision/branch/tag.
+"NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
+" Required:
 call neobundle#end()
 
 " Required:
 filetype plugin indent on
 
-" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
 
 "-------------------------
 " End Neobundle Settings.
